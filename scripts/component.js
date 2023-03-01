@@ -20,10 +20,10 @@ const $regAuth = (_) => {
 }
 
 const $customer = (_) => {
-    const { id, email } = _
+    const { email } = _
     return `<div>
                 <div class="btn-group" role="group" aria-label="Basic mixed styles">
-                    <button type="button" class="btn btn-main-dark-blue btn-style show-customer-btn" data-id="${id}" onclick="showCustomerForm(this)">
+                    <button type="button" class="btn btn-main-dark-blue btn-style" onclick="showCustomerForm(this)">
                         <i class="bi bi-journal-plus"></i>                       
                     </button>
                     <button type="button" class="btn btn-main-blue btn-style">
@@ -36,8 +36,32 @@ const $customer = (_) => {
             </div>`
 }
 
+const $textareaField = (_) => {
+    const { fieldId, classToAdd } = _
+
+    return `<div class="d-flex flex-row mt-2" id="${fieldId}">                 
+                  <textarea class="form-control ${classToAdd}" placeholder="Enter here" rows="2"></textarea>
+                  <button type="button" class="btn btn-main-dark-blue btn-style ms-1" onclick="deleteField(${fieldId})"><i class="bi bi-trash3"></i></button>
+            </div>`
+}
+
+const $selectField = (id) => {
+    return  `<div class="d-flex flex-row mt-2" id="${id}">
+                <select class="form-select">
+                    <option>Select language</option>
+                    <option>English</option>
+                    <option>French</option>
+                    <option>Georgian</option>
+                    <option>Russian</option>
+                </select>
+                <button type="button" class="btn btn-main-dark-blue btn-style ms-1" onclick="deleteField(${id})"><i class="bi bi-trash3"></i></button>                        
+             </div>`
+}
+
 export { 
     $regAuth,
     $customer,
     $alertMessage,
+    $textareaField,
+    $selectField
 }

@@ -1,5 +1,4 @@
-import { $alertMessage } from './component.js'
-import { $resumeForm, $textareaField, $selectField } from './resumeForm.js'
+import { $alertMessage, $textareaField, $selectField } from './component.js'
 import { $completedForm } from './completedResume.js'
 import { getById, render, insertHtml, qs } from './dom.js'
 import { uid } from './config.js'
@@ -10,31 +9,40 @@ const logOut = () => {
     window.location.reload()
 }
 
-const showCustomerForm = (e) => {
-    render(getById('resume-form'), $resumeForm({}))
+const showCustomerForm = async () => {
+    new bootstrap.Modal('#resume-form-modal', {
+        keyboard: false
+    }).show()
 }
 
 const addNewField = (e) => {
- const {field , classToAdd} = e.dataset
- const addFieldBtn = getById(field)
- const fieldId = uid()
- insertHtml(addFieldBtn,'beforebegin', $textareaField({fieldId,classToAdd}))
+    const {idField , classToAdd} = e.dataset
+    const idMainField = getById(idField)
+    const fieldId = uid()
+    insertHtml(idMainField,'beforeend', $textareaField({fieldId,classToAdd}))
 }
 
 const addNewSelect = (e) => {
-    const {select} = e.dataset
-    const addSelectBtn = getById(select)
+    const {idSelect} = e.dataset
+    const addMainSelect = getById(idSelect)
     const selectId = uid()
-    insertHtml(addSelectBtn,'beforebegin', $selectField(selectId))
+    insertHtml(addMainSelect,'beforeend', $selectField(selectId))
 }
 
 const deleteField = (_) => {  
     const {id} = _
     getById(id).remove()
+    showCustomerForm()
 }
 
 const clearData = () => {
-    qs(".show-customer-btn").dispatchEvent(new Event("click"))   
+    getById('nameField').value = null 
+    getById('contactField').value = null
+    getById('addressField').value = null
+    getById('photoField').value = null
+    getById('gitHubField').value = null
+    getById('LinkedField').value = null
+    getById('objectiveField').value = null
 }
 
 const addNewResume = () => {
@@ -101,7 +109,7 @@ const completedFormData = (id) => {
        const data = customerForm.form_values
        const name = data.filter( value => value.name).length > 0 ? data.filter( value => value.name)[0].name : ""
        const contact = data.filter( value => value.contact).length > 0 ? data.filter( value => value.contact)[0].contact : ""
-       const address = data.filter( value => value.address) == undefined ? data.filter( value => value.address)[0].address : ""
+       const address = data.filter( value => value.address).length > 0 ? data.filter( value => value.address)[0].address : ""
        //const photo = null
        const gitHub = data.filter( value => value.gitHub).length > 0 ? data.filter( value => value.gitHub)[0].gitHub : ""
        const linked = data.filter( value => value.linked).length > 0 ? data.filter( value => value.linked)[0].linked : ""

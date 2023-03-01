@@ -70,8 +70,114 @@
             </div>
         </div>
     </div>
+    <!--Modal clear form's data-->
+    <div class="modal fade" id="clear-data-modal" tabindex="-1" aria-labelledby="clear-data-label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content modal-window-style">
+            <div class="modal-body">
+              <p class="pt-3">Are you sure you want to delete?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-main-dark-blue btn-style" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-main-blue btn-style">Yes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--Modal resume form-->
+    <div class="modal fade" id="resume-form-modal" tabindex="-1" aria-labelledby="resume-form-label" aria-hidden="true">
+        <div class="modal-dialog pt-5" style="--bs-modal-width:80%;">
+            <div class="modal-content resume-form-fields">
+                <div class="modal-header m-0 form-header">
+                    <h3 class="fw-bold form-header-title">Resume Generator</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>                       
+                </div>
+                <div class="modal-body">                 
+                    <form class="row">
+                        <div class="col-md-6">
+                        <h4>Personal Information</h4>
+                        <div class="form-group">
+                            <label for="nameField" class="form-label">Your Name</label>
+                            <input type="text" id="nameField" class="form-control" placeholder="Enter here">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="contactField" class="form-label">Your Contact</label>
+                            <input type="text" id="contactField" class="form-control" placeholder="Enter here">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="addressField" class="form-label">Your Address</label>
+                            <textarea id="addressField" class="form-control" placeholder="Enter here" rows="2"></textarea>
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="" class="form-label">Select your photo</label>
+                            <input type="file" id="photoField" class="form-control" placeholder="Enter here">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="gitHubField" class="form-label">GitHub</label>
+                            <input type="text" id="gitHubField" class="form-control" placeholder="Enter here">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="contactField" class="form-label">LinkedIn</label>
+                            <input type="text" id="LinkedField" class="form-control" placeholder="Enter here">
+                        </div>
+                        </div>           
+                        <div class="col-md-6">
+                            <h4>Professional Information</h4>
+                            <div class="form-group mt-2">
+                                <label for="objectiveField">Objective</label>
+                                <textarea class="form-control" id="objectiveField" placeholder="Enter here" rows="2"></textarea>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="">Work Experience</label>
+                                <div  id="workExp">
+                                    <textarea class="form-control workExpField" placeholder="Enter here" rows="2"></textarea>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button type="button" class="btn btn-main-dark-blue btn-style" data-class-to-add="workExpField" data-id-field="workExp" onclick="addNewField(this)">ADD</button>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="">Academic Qualification</label>
+                                <div id="acQual">
+                                    <textarea class="form-control acQualField" placeholder="Enter here" rows="2"></textarea>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button type="button" class="btn btn-main-dark-blue btn-style" data-class-to-add="acQualField" data-id-field="acQual" onclick="addNewField(this)">ADD</button>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2" id="languageField">
+                                <label for="" class="form-label">Languages</label> 
+                                <div id="langSelect">                      
+                                    <select class="form-select">
+                                        <option>Select language</option>
+                                        <option value="English">English</option>
+                                        <option value="French">French</option>
+                                        <option value="Georgian">Georgian</option>
+                                        <option value="Russian">Russian</option>
+                                    </select>
+                                </div>
+                                <div class="text-center mt-2">
+                                    <button type="button" class="btn btn-main-dark-blue btn-style" data-id-select="langSelect" onclick="addNewSelect(this)">ADD</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row gap-3 justify-content-center"> 
+                            <div class="text-center my-2">
+                                <button type="button" class="btn btn-main-dark-blue btn-style" onclick="addNewResume()" >Generate CV</button>
+                            </div>
+                            <div class="text-center my-2">
+                                <button type="button" class="btn btn-main-dark-blue btn-style" onclick="clearData()" >Clear</button>
+                            </div>
+                        </div>  
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal completed resume-->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
     <script src="scripts/app.js" type="module"></script>
     <script type="module">
         import { logOut, 
@@ -80,17 +186,13 @@
                  deleteField,
                  addNewSelect,
                  clearData,
-                 addNewResume,
-                 downloadCV,
         } from './scripts/functions.js'
              window.logOut = logOut
              window.showCustomerForm = showCustomerForm
              window.addNewField = addNewField
              window.addNewSelect = addNewSelect
              window.deleteField = deleteField
-             window.clearData = clearData
-             window.addNewResume = addNewResume
-             window.downloadCV = downloadCV             
+             window.clearData = clearData           
     </script>
 </body>
 </html>

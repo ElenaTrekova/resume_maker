@@ -43,6 +43,10 @@ body {
 }
 
 .form-header {
+    background-color: rgb(137, 178, 193);;
+}
+
+.form-header-title {
     color: var(--main-dark-blue-color);
     letter-spacing: 0.4em;
 }

@@ -21,7 +21,7 @@ const $completedForm = (_) => {
                     <div class="col-md-4">
                         <div class="text-center p-3 personal-info-bg rounded">
                             <div class="container col-4 my-4">
-                                <img scr="../images/unknown-person.jpg" alt="" id="customer-photo" class="img-fluid"/>
+                                <img src="images/unknown-person.jpg" alt="" id="customer-photo" class="img-fluid" />
                             </div>                    
                             <div class="container col-8">
                                 <p>${name}</p>

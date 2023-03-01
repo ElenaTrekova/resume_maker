@@ -1,7 +1,7 @@
 import { defaultCollections, uid } from './config.js'
 import { initCollections, insertData, selectData } from './storage.js'
 import { getById, render, qs } from './dom.js'
-import { $regAuth, $customer, $alertMessage } from './component.js'
+import { $regAuth, $customer, $alertMessage, $textareaField, $selectField } from './component.js'
 
 window.addEventListener('DOMContentLoaded', async () => {
 
@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', async () => {
              window.location.reload()
          }
      })
-   
+
 })
 
 
