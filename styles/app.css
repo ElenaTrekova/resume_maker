@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+:root{
+    scroll-behavior: smooth;
+    --main-blue-color : rgba(1,127,180,1);
+    --main-dark-blue-color : rgba(2,69,120,1);
+    --main-light-blue-color : rgba(217, 237, 245, 0.8);
+    --main-text-color : rgba(158,209,241,1);
+}
+
+body {
+    background: url(../images/theme/sense.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Source Code Pro', monospace;
+    min-height: 100vh;
+}
+
+.btn-style {
+   color: var(--main-text-color);
+   transition: background-color 0.9s ease;
+}
+.btn-main-blue {
+   background-color: var(--main-blue-color);
+}
+.btn-style:hover {
+    background-color: rgb(180, 1, 135)!important;  
+ }
+
+.btn-main-dark-blue {
+    background-color: var(--main-dark-blue-color);
+}
+
+.modal-window-style {
+    background-color: var(--main-light-blue-color); 
+}
+
+.resume-form-fields {
+    background-color: var(--main-blue-color);
+    color: var(--main-text-color);
+}
+
+.form-header {
+    background-color: rgb(137, 178, 193);;
+}
+
+.form-header-title {
+    color: var(--main-dark-blue-color);
+    letter-spacing: 0.4em;
+}
+
+.bg-completed-resume {
+    background-color: var(--main-light-blue-color)
+}
+
+.personal-info-bg {
+    background-color: rgb(129, 180, 202);
+}
+
+.person-name {
+    letter-spacing: 0.2em; 
+}
+
+#customer-photo {
+    background-size: contain;
+    max-width:100%;
+    max-height:100%;   
+}
