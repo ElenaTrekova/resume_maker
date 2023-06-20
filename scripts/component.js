@@ -16,6 +16,9 @@ const $regAuth = (_) => {
                         <span>Authorization</span>
                     </button>
                 </div>
+                <div>
+                    <a href="https://github.com/ElenaTrekova/resume_maker.git" target="_blank" class="btn btn-main-blue btn-style" tabindex="-1" role="button" aria-disabled="true">Course Code</a>
+                </div>
             </div>`          
 }
 
